@@ -10,24 +10,21 @@
     
     <!-- Font Awesome Atualizado -->
     <link rel="stylesheet" href="https://cloudflare.com">
-    <link rel="stylesheet" href="./estilo/style.css" />
+    
+    <!-- O "?v=1.1" força o navegador a atualizar o visual imediatamente -->
+    <link rel="stylesheet" href="./estilo/style.css?v=1.1" />
 </head>
 <body>
 
     <header class="header">
-        <!-- Canvas para renderizar o fundo tecnológico animado -->
         <canvas id="header-canvas"></canvas>
-        
-        <!-- Frase que será movida via JavaScript moderno -->
         <p class="header__subtitle">Domine a Web com um Clique!</p>
-        
         <div class="header__content">
             <h1 class="header__title">Olá, meu nome é João Marcos</h1>
         </div>
     </header>
 
     <main>
-        <!-- Seção Perfil -->
         <section class="profile">
             <div class="profile__container">
                 <picture class="profile__avatar-container">
@@ -46,12 +43,10 @@
             </div>
         </section>
 
-        <!-- Seção Especialidades -->
         <section class="especialidades">
             <h2 class="section-title">Minhas Especialidades</h2>
             
             <div class="especialidades__grid">
-                <!-- Card Front End -->
                 <div class="especialidades__card">
                     <div class="card-icon"><i class="fas fa-code"></i></div>
                     <h3>Front-End</h3>
@@ -62,7 +57,6 @@
                     </ul>
                 </div>
                
-                <!-- Card Back End -->
                 <div class="especialidades__card">
                     <div class="card-icon"><i class="fas fa-server"></i></div>
                     <h3>Back-End</h3>
