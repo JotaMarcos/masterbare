@@ -160,7 +160,7 @@ body {
 
 /* Selos das Certificações */
 .profile__certifications {
-    margin: 30px 0;
+    margin: 30px 0 20px 0;
     padding-top: 20px;
     border-top: 1px dashed rgba(23, 42, 69, 0.15);
     display: flex;
@@ -186,38 +186,61 @@ body {
     margin-right: 7px;
 }
 
-/* Redes Sociais do Perfil Corrigidas e Altamente Visíveis */
-.profile__social {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 35px !important;
-    list-style: none !important;
-    list-style-type: none !important;
-    margin: 40px auto 0 auto !important;
-    padding: 0 !important;
+/* Área de Destaque para Botões das Redes Sociais Completas */
+.profile__social-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
     width: 100%;
 }
 
-.profile__social li {
-    list-style: none !important;
-    list-style-type: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: inline-block !important;
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.profile__social a {
-    color: var(--color-primary) !important;
-    font-size: 2.5rem !important; /* Aumentado para destaque total */
-    transition: var(--transition) !important;
-    display: inline-block !important;
-    text-decoration: none !important;
+.social-btn i {
+    font-size: 1.25rem;
 }
 
-.profile__social a:hover {
-    color: var(--color-accent) !important;
-    transform: translateY(-4px) !important;
+/* Cores Oficiais Premium e Efeitos Interativos */
+.linkedin-btn {
+    background-color: #0077b5;
+}
+.linkedin-btn:hover {
+    background-color: #005a8a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 119, 181, 0.4);
+}
+
+.github-btn {
+    background-color: #24292e;
+}
+.github-btn:hover {
+    background-color: #0f1115;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(36, 41, 46, 0.4);
+}
+
+.whatsapp-btn {
+    background-color: #25d366;
+}
+.whatsapp-btn:hover {
+    background-color: #1ebd56;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
 }
 
 /* Seção Especialidades */
@@ -350,7 +373,7 @@ body {
     50% { border-color: var(--color-accent); }
 }
 
-/* Footer Corporativo Sempre Visível */
+/* Footer Corporativo */
 .footer {
     background: var(--color-bg-dark);
     color: var(--color-white);
