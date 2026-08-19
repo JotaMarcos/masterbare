@@ -22,40 +22,90 @@ document.addEventListener("DOMContentLoaded", () => {
         typeWriter();
     }
 
-    // 3. Aprimoramento: Movimentação "Bate e Volta" da frase do cabeçalho via JS
+    // 3. Movimentação Infinita da Frase Superior (Alternativa Moderna ao Marquee)
     const subtitle = document.querySelector(".header__subtitle");
     if (subtitle) {
-        let posX = 0;
-        let direcao = 1; // 1 significa indo para a direita, -1 indo para a esquerda
-        const velocidade = 2; // Altere este número para deixar mais rápido ou mais devagar
+        let currentX = window.innerWidth; // Inicia na extremidade direita da tela
+        const speed = 1.8; // Controla a velocidade do deslize
 
-        function moverLegenda() {
-            // Pega a largura atual da tela e o tamanho real ocupado pelo texto
-            const larguraTela = window.innerWidth;
-            const larguraTexto = subtitle.offsetWidth;
+        function animateMarquee() {
+            const textWidth = subtitle.offsetWidth;
+            currentX -= speed;
 
-            // Incrementa a posição horizontal baseado na velocidade e direção
-            posX += velocidade * direcao;
-
-            // Se o texto atingir o limite direito da tela, inverte para a esquerda
-            if (posX + larguraTexto >= larguraTela) {
-                direcao = -1;
-            }
-            // Se o texto atingir o limite esquerdo (0), inverte para a direita
-            else if (posX <= 0) {
-                direcao = 1;
+            // Se o texto sair completamente pela esquerda, reseta para a direita
+            if (currentX < -textWidth) {
+                currentX = window.innerWidth;
             }
 
-            // Aplica a nova posição na tela usando a propriedade transform para melhor performance
-            subtitle.style.transform = `translateX(${posX}px)`;
+            subtitle.style.transform = `translateX(${currentX}px)`;
+            requestAnimationFrame(animateMarquee);
+        }
+        animateMarquee();
+    }
 
-            // Executa a função continuamente acompanhando a taxa de atualização da tela
-            requestAnimationFrame(moverLegenda);
+    // 4. Fundo de Partículas Interativo no Header (Substituindo imagens estáticas pesadas)
+    const canvas = document.getElementById("header-canvas");
+    if (canvas) {
+        const ctx = canvas.getContext("2d");
+        let particlesArray = [];
+        const numberOfParticles = 40;
+
+        // Ajusta as dimensões do canvas para casar com o elemento pai
+        function setCanvasSize() {
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+        }
+        setCanvasSize();
+        window.addEventListener("resize", setCanvasSize);
+
+        // Classe Construtora das Partículas
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1; // Pequenos pontos brilhantes
+                this.speedX = Math.random() * 0.4 - 0.2; // Movimento sutil
+                this.speedY = Math.random() * 0.4 - 0.2;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                // Faz a partícula voltar para a tela caso ela saia das bordas
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(0, 180, 216, ${this.opacity})`; // Tons cyan modernos
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
         }
 
-        // Inicializa o posicionamento e inicia a animação do JS
-        subtitle.style.position = "absolute";
-        subtitle.style.left = "0";
-        moverLegenda();
+        // Inicializa o array de partículas
+        function init() {
+            particlesArray = [];
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        init();
+
+        // Loop de renderização do Canvas para movimentos a 60fps estáveis
+        function handleParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(handleParticles);
+        }
+        handleParticles();
     }
 });
