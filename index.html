@@ -1,118 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Master Baré</title>
-        <meta name="description" content="Desenvolvimento Web com Java Web, Node.js e PHP.">
-        <link rel="shortcut icon" href="./icon/favicon.png" type="image/x-icon">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css">
-        
-        <link rel="stylesheet" href="./estilo/style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Baré | João Marcos</title>
+    <meta name="description" content="Desenvolvimento Web com Java, Node.js, Angular e PHP.">
+    <link rel="shortcut icon" href="./icon/favicon.png" type="image/x-icon">
+    
+    <!-- Font Awesome Atualizado -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="./estilo/style.css" />
+</head>
+<body>
 
-    </head>
-    <body>
-        <header class="header">
-           <marquee><h2>Domine a Web com um Clique!</h2></marquee>
-            <h1>Olá, meu nome é João Marcos</h1>
-       </header>
+    <header class="header">
+        <div class="header__content">
+            <p class="header__subtitle">Domine a Web com um Clique!</p>
+            <h1 class="header__title">Olá, meu nome é João Marcos</h1>
+        </div>
+    </header>
 
-       <section class="profile">
-            <img class="profile__avatar" src="imagens/joaomarcos.png" alt="João Marcos"/>
+    <main>
+        <!-- Seção Perfil -->
+        <section class="profile">
+            <div class="profile__container">
+                <!-- HTML5: Uso de picture para carregar formatos modernos futuramente -->
+                <picture class="profile__avatar-container">
+                    <img class="profile__avatar" src="imagens/joaomarcos.png" alt="Foto de perfil de João Marcos" loading="eager"/>
+                </picture>
 
-            <p class="profile__copy">
-                Desenvolvendo habilidades em Java e Angular enquanto contribuo com projetos governamentais, educacionais, industriais e serviços bancários. Sustentação em defeitos e criação de melhorias em sistemas legados, bem como aplicação de metodologias ágeis, de código limpo, de refatoração, de desenvolvimento orientado para testes, visando aperfeiçoar a experiência e utilização das aplicações pelo usuário, de forma moderna e humanizada.
-
-                Vamos aprender e compartilhar experiências e conhecimentos no vasto universo da tecnologia.
-            </p> 
-            <ul class="profile__social">
-                <li>
-                    <a href="https://linkedin.com/in/jotamarcosduarte/" target="_blank">
-                        <i class="fab fa-linkedin fa-lg"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/JotaMarcos" target="_blank">
-                        <i class="fab fa-github fa-lg"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://api.whatsapp.com/send?phone=+5592991766216" target="_blank">
-                        <i class="fab fa-whatsapp fa-lg"></i>
-                    </a>
-                </li>
-            </ul>
-
-       </section>
-       <section class="profile__especialidade">
-            <h2>Minhas Especialidades</h2>
-            <div>
-        
-                <h4>Front End</h4>
-                <ol>
-                    <li text-align="center"><a href="https://github.com/JotaMarcos/masterbare.git" target="_blank">
-                        <i class="fab fa-github fa-lg"> HTML5, CSS3</i></a></li>
-                    <li text-align="center"><a href="https://github.com/JotaMarcos/barbearia-alura.git" target="_blank">
-                        <i class="fab fa-github fa-lg"> HTML5, CSS3, JavaScript</i></a></li>
-                    <li text-align="center"><a href="https://github.com/JotaMarcos/listaTelefonica.git" target="_blank">
-                        <i class="fab fa-github fa-lg"> AngularJS</i></a></li>
-
-
-
-                </ol>
-               
-            </div>
-            <div>
+                <p class="profile__copy">
+                    Desenvolvendo habilidades em Java e Angular enquanto contribuo com projetos governamentais, educacionais, industriais e serviços bancários. Atuo na sustentação, correção de defeitos e criação de melhorias em sistemas legados, bem como aplicação de metodologias ágeis, código limpo, refatoração e TDD, visando aperfeiçoar a experiência do usuário de forma moderna e humanizada.
+                </p> 
                 
-                <h4>Back End</h4>
-                <ol>
-                    <li text-align="center"><a href="https://github.com/JotaMarcos/fundamentosJava.git" target="_blank">
-                    <i class="fab fa-github fa-lg"> Java</i></a></li>
-                    <li text-align="center"><a href="https://github.com/JotaMarcos/POOExpert.git" target="_blank">
-                    <i class="fab fa-github fa-lg"> Programação Orientada a Objetos com Java</i></a></li>
-                    <li text-align="center"><a href="https://github.com/JotaMarcos/DevLockTechContatos.git" target="_blank">
-                    <i class="fab fa-github fa-lg"> Spring Boot</i></a></li>
-
-
-                </ol>
-            
+                <ul class="profile__social">
+                    <li><a href="https://linkedin.com/in/jotamarcosduarte/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/JotaMarcos" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=+5592991766216" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+                </ul>
             </div>
-            <marquee behavior="altenative" direction="right"><h3>O conhecimento transforma a vida!!!</h3></marquee>
-
         </section>
 
-       <footer class="footer">
-        <h6><script type="text/javascript">document.write(new Date().getFullYear());</script> - MasterBaré</h6>
+        <!-- Seção Especialidades -->
+        <section class="especialidades">
+            <h2 class="section-title">Minhas Especialidades</h2>
+            
+            <div class="especialidades__grid">
+                <!-- Card Front End -->
+                <div class="especialidades__card">
+                    <div class="card-icon"><i class="fas fa-code"></i></div>
+                    <h3>Front-End</h3>
+                    <ul class="repo-list">
+                        <li><a href="https://github.com/JotaMarcos/masterbare.git" target="_blank"><i class="fab fa-github"></i> HTML5, CSS3</a></li>
+                        <li><a href="https://github.com/JotaMarcos/barbearia-alura.git" target="_blank"><i class="fab fa-github"></i> HTML5, CSS3, JS</a></li>
+                        <li><a href="https://github.com/JotaMarcos/listaTelefonica.git" target="_blank"><i class="fab fa-github"></i> AngularJS</a></li>
+                    </ul>
+                </div>
+               
+                <!-- Card Back End -->
+                <div class="especialidades__card">
+                    <div class="card-icon"><i class="fas fa-server"></i></div>
+                    <h3>Back-End</h3>
+                    <ul class="repo-list">
+                        <li><a href="https://github.com/JotaMarcos/fundamentosJava.git" target="_blank"><i class="fab fa-github"></i> Java Core</a></li>
+                        <li><a href="https://github.com/JotaMarcos/POOExpert.git" target="_blank"><i class="fab fa-github"></i> POO Avançado</a></li>
+                        <li><a href="https://github.com/JotaMarcos/DevLockTechContatos.git" target="_blank"><i class="fab fa-github"></i> Spring Boot</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="phrase-container">
+                <p class="typing-text">O conhecimento transforma a vida!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="year"></span> - MasterBaré</p>
         <ul class="footer__social">
-            <li>
-                <a href="https://linkedin.com/in/jotamarcosduarte/" target="_blank">
-                    <i class="fab fa-linkedin fa-lg"></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/JotaMarcos" target="_blank">
-                    <i class="fab fa-github fa-lg"></i>
-                </a>
-            </li>
-            <li>
-                <a href="skype:jmarcos_duarte" target="_blank">
-                    <i class="fab fa-skype fa-lg"></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://api.whatsapp.com/send?phone=+5592991766216" target="_blank">
-                    <i class="fab fa-whatsapp fa-lg"></i>
-                </a>
-            </li>
+            <li><a href="https://linkedin.com/in/jotamarcosduarte/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://github.com/JotaMarcos" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="skype:jmarcos_duarte" target="_blank"><i class="fab fa-skype"></i></a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=+5592991766216" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
         </ul>
+    </footer>
 
-       </footer>
-
-
-
-       
-
-    </body>
+    <!-- JavaScript Otimizado -->
+    <script src="./js/main.js" defer></script>
+</body>
 </html>
