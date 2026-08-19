@@ -1,15 +1,23 @@
+/* Reset Global Eficiente */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+ul, ol, li {
+    list-style: none !important;
+    list-style-type: none !important;
+    padding: 0;
+    margin: 0;
+}
+
 :root {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --color-bg-light: #f4f6f9;
-    --color-bg-dark: #0a192f; /* Azul escuro tecnológico corporativo */
+    --color-bg-dark: #0a192f;
     --color-primary: #172a45;
-    --color-accent: #64ffda;  /* Ciano/Matrix */
+    --color-accent: #64ffda;
     --color-text-main: #333333;
     --color-text-side: #8892b0;
     --color-white: #ffffff;
@@ -25,7 +33,7 @@ body {
     min-height: 100vh;
 }
 
-/* Header Otimizado */
+/* Header */
 .header {
     height: 40vh;
     background: radial-gradient(circle at center, var(--color-primary) 0%, var(--color-bg-dark) 100%);
@@ -90,12 +98,11 @@ body {
     text-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
-/* Seção Perfil - Tornamos o fundo visível nas laterais (Setas Vermelhas do Print) */
+/* Seção Perfil */
 .profile {
     position: relative;
     margin-top: -60px;
     padding: 0 20px 40px 20px;
-    /* Imagem Tecnológica nas laterais amplas */
     background-image: 
         radial-gradient(rgba(23, 42, 69, 0.08) 1.5px, transparent 0),
         radial-gradient(rgba(100, 255, 218, 0.1) 1.5px, transparent 0);
@@ -103,7 +110,6 @@ body {
     background-position: 0 0, 15px 15px;
 }
 
-/* Contêiner de Perfil com Transparência Vítrea e Grid de engenharia embutido */
 .profile__container {
     background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(10px);
@@ -149,7 +155,7 @@ body {
     font-size: 1.05rem;
     max-width: 75ch;
     text-align: justify;
-    text-indent: 2em; /* Formatação elegante de parágrafo */
+    text-indent: 2em;
 }
 
 /* Selos das Certificações */
@@ -180,9 +186,30 @@ body {
     margin-right: 7px;
 }
 
+/* Redes Sociais do Perfil Otimizadas Lado a Lado e Sem Pontos */
+.profile__social {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 30px !important;
+    list-style: none !important;
+    list-style-type: none !important;
+    margin: 35px auto 0 auto !important;
+    padding: 0 !important;
+    width: 100%;
+}
+
+.profile__social li {
+    list-style: none !important;
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-block !important;
+}
+
 .profile__social a {
     color: var(--color-primary);
-    font-size: 1.9rem;
+    font-size: 2.2rem;
     transition: var(--transition);
     display: inline-block;
 }
@@ -192,12 +219,11 @@ body {
     transform: translateY(-4px);
 }
 
-/* Seção Especialidades (Imagem Tecnológica de Ensino/Redes no Fundo) */
+/* Seção Especialidades */
 .especialidades {
     padding: 90px 20px;
     text-align: center;
     position: relative;
-    /* Imagem Tecnológica Linear de fundo visível em toda a extensão lateral */
     background-color: #ffffff;
     background-image: 
         linear-gradient(to right, rgba(23, 42, 69, 0.04) 1px, transparent 1px),
@@ -295,7 +321,7 @@ body {
     padding-left: 4px;
 }
 
-/* Área do Terminal Inferior (Antes do Rodapé) */
+/* Terminal Inferior */
 .phrase-container {
     text-align: center;
     margin-top: 70px;
@@ -323,12 +349,12 @@ body {
     50% { border-color: var(--color-accent); }
 }
 
-/* Footer Corporativo Corrigido (Sempre Visível e Destacado) */
+/* Footer Corporativo Sempre Visível */
 .footer {
     background: var(--color-bg-dark);
     color: var(--color-white);
     padding: 30px 50px;
-    margin-top: 60px; /* Garante espaçamento físico para não sumir da tela */
+    margin-top: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -346,9 +372,9 @@ body {
 }
 
 .footer__social {
-    display: flex;
-    gap: 25px;
-    list-style: none;
+    display: flex !important;
+    gap: 25px !important;
+    list-style: none !important;
 }
 
 .footer__social a {
@@ -362,7 +388,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Responsividade Mobile */
+/* Responsividade */
 @media (max-width: 768px) {
     .header__title { font-size: 2.1rem; }
     .footer { flex-direction: column; text-align: center; padding: 25px 20px; }
