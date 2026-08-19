@@ -113,20 +113,20 @@ body {
 
 /* Elemento da Nova Logo em Paralaxe Dinâmico de Fundo */
 .profile__bg-logo {
-    position: fixed; /* Efeito Paralaxe: Fica fixo enquanto o contêiner rola */
+    position: fixed;
     top: 45%;
     left: 0;
     width: 320px;
     height: 320px;
-    z-index: 1; /* Fica atrás da div profile__container */
-    pointer-events: none; /* Ignora o mouse para não atrapalhar a seleção de texto */
-    opacity: 0.12; /* Suave para funcionar como uma marca d'água executiva */
+    z-index: 1;
+    pointer-events: none;
     
-    /* Movimentação horizontal automática de um lado para o outro */
+    /* MODIFIQUE APENAS ESTA LINHA: */
+    opacity: 0.35; /* Aumentado de 0.12 para 0.35 para dar mais nitidez */
+    
     animation: moverLogoLateral 25s ease-in-out infinite alternate;
     will-change: transform;
 }
-
 /* Animação que faz a imagem transicionar horizontalmente pelas extremidades da janela */
 @keyframes moverLogoLateral {
     0% {
