@@ -19,22 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         typeWriter();
     }
 
-    // 3. Substituição do Letreiro Marquee Inteligente (Loop Infinito por GPU)
-    const subtitle = document.querySelector(".header__subtitle");
-    if (subtitle) {
-        let currentX = window.innerWidth;
-        const speed = 1.5;
-        function animateMarquee() {
-            const textWidth = subtitle.offsetWidth;
-            currentX -= speed;
-            if (currentX < -textWidth) currentX = window.innerWidth;
-            subtitle.style.transform = `translateX(${currentX}px)`;
-            requestAnimationFrame(animateMarquee);
-        }
-        animateMarquee();
-    }
-
-    // 4. Rede Conectada / Constelação Tecnológica Animada em HTML5 Canvas
+    // 3. Fundo de Constelação Tecnológica Interativo em HTML5 Canvas
     const canvas = document.getElementById("header-canvas");
     if (canvas) {
         const ctx = canvas.getContext("2d");
@@ -80,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         init();
 
-        // Desenha linhas conectando as partículas próximas criando o efeito de rede (web)
         function connectNodes() {
             for (let a = 0; a < particlesArray.length; a++) {
                 for (let b = a; b < particlesArray.length; b++) {
