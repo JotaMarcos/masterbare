@@ -25,7 +25,7 @@ body {
     min-height: 100vh;
 }
 
-/* Header com Gradiente Moderno e Overflow Oculto */
+/* Header com Gradiente Moderno e Elementos Flutuantes */
 .header {
     height: 45vh;
     background: linear-gradient(135deg, var(--color-bg-dark), var(--color-primary));
@@ -34,7 +34,7 @@ body {
     place-items: center;
     text-align: center;
     padding: 0 20px;
-    overflow: hidden; /* Importante para a frase não criar barra de rolagem horizontal */
+    overflow: hidden; /* Oculta a barra de rolagem quando o texto passa pela borda da tela */
     position: relative;
 }
 
@@ -42,27 +42,32 @@ body {
     width: 100%;
 }
 
-/* Frase com Animação de Transição Lateral (CSS3) */
+/* Frase Animada do Cabeçalho */
 .header__subtitle {
     font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 15px;
     color: #00b4d8;
     font-weight: 600;
-    display: inline-block;
     white-space: nowrap;
-    /* Animação: nome, duração (12s), ritmo linear, repetição infinita */
-    animation: moverFrase 12s linear infinite;
+    
+    /* Configuração física absoluta para movimentação fluida da esquerda para a direita */
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    
+    /* Dispara a animação nativa do CSS3 */
+    animation: moverFrase 15s linear infinite;
 }
 
-/* Regra da Animação CSS3: Faz o texto cruzar a tela inteira */
+/* Regra de Animação CSS3 para efeito infinito de Marquee */
 @keyframes moverFrase {
     0% {
-        transform: translateX(100vw); /* Começa totalmente fora da tela, à direita */
+        transform: translateX(100%);
     }
     100% {
-        transform: translateX(-100%); /* Termina totalmente fora da tela, à esquerda */
+        transform: translateX(-100%);
     }
 }
 
@@ -199,7 +204,7 @@ body {
     padding-left: 5px;
 }
 
-/* Área para a Frase de Efeito com cursor de digitação */
+/* Área da Frase com Cursor de Digitação */
 .phrase-container {
     text-align: center;
     margin-top: 50px;
@@ -227,7 +232,7 @@ body {
     background: var(--color-bg-dark);
     color: var(--color-white);
     padding: 20px;
-    margin-top: auto; /* Garante o rodapé na base da página */
+    margin-top: auto; /* Joga o footer para a base da página de forma flexível */
     display: flex;
     justify-content: space-between;
     align-items: center;
