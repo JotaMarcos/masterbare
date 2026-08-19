@@ -25,7 +25,7 @@ body {
     min-height: 100vh;
 }
 
-/* Header com Gradiente Moderno */
+/* Header com Gradiente Moderno e Overflow Oculto */
 .header {
     height: 45vh;
     background: linear-gradient(135deg, var(--color-bg-dark), var(--color-primary));
@@ -34,15 +34,36 @@ body {
     place-items: center;
     text-align: center;
     padding: 0 20px;
+    overflow: hidden; /* Importante para a frase não criar barra de rolagem horizontal */
+    position: relative;
 }
 
+.header__content {
+    width: 100%;
+}
+
+/* Frase com Animação de Transição Lateral (CSS3) */
 .header__subtitle {
     font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: #00b4d8;
     font-weight: 600;
+    display: inline-block;
+    white-space: nowrap;
+    /* Animação: nome, duração (12s), ritmo linear, repetição infinita */
+    animation: moverFrase 12s linear infinite;
+}
+
+/* Regra da Animação CSS3: Faz o texto cruzar a tela inteira */
+@keyframes moverFrase {
+    0% {
+        transform: translateX(100vw); /* Começa totalmente fora da tela, à direita */
+    }
+    100% {
+        transform: translateX(-100%); /* Termina totalmente fora da tela, à esquerda */
+    }
 }
 
 .header__title {
@@ -237,7 +258,7 @@ body {
     }
     .typing-text {
         font-size: 1.1rem;
-        white-space: normal; /* Permite quebrar linha em telas muito pequenas se necessário */
+        white-space: normal;
         border-right: none;
         animation: none;
     }
