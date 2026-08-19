@@ -8,15 +8,16 @@
     <meta name="description" content="Desenvolvimento Web com Java, Node.js, Angular e PHP.">
     <link rel="shortcut icon" href="./icon/favicon.png" type="image/x-icon">
     
-    <!-- Font Awesome Atualizado -->
+    <!-- Ícones Profissionais (Font Awesome) -->
     <link rel="stylesheet" href="https://cloudflare.com">
     
-    <!-- O "?v=1.1" força o navegador a atualizar o visual imediatamente -->
-    <link rel="stylesheet" href="./estilo/style.css?v=1.1" />
+    <!-- Link para o arquivo CSS na pasta correta -->
+    <link rel="stylesheet" href="./estilo/style.css" />
 </head>
 <body>
 
     <header class="header">
+        <!-- Fundo interativo gerado nativamente por código gráfico -->
         <canvas id="header-canvas"></canvas>
         <p class="header__subtitle">Domine a Web com um Clique!</p>
         <div class="header__content">
@@ -25,11 +26,12 @@
     </header>
 
     <main>
+        <!-- Seção Perfil / Cartão Flutuante -->
         <section class="profile">
             <div class="profile__container">
-                <picture class="profile__avatar-container">
-                    <img class="profile__avatar" src="imagens/joaomarcos.png" alt="Foto de perfil de João Marcos" loading="eager"/>
-                </picture>
+                <div class="profile__avatar-container">
+                    <img class="profile__avatar" src="imagens/joaomarcos.png" alt="Foto de perfil de João Marcos"/>
+                </div>
 
                 <p class="profile__copy">
                     Desenvolvendo habilidades em Java e Angular enquanto contribuo com projetos governamentais, educacionais, industriais e serviços bancários. Atuo na sustentação, correção de defeitos e criação de melhorias em sistemas legados, bem como aplicação de metodologias ágeis, código limpo, refatoração e TDD, visando aperfeiçoar a experiência do usuário de forma moderna e humanizada.
@@ -43,22 +45,25 @@
             </div>
         </section>
 
+        <!-- Seção Especialidades -->
         <section class="especialidades">
             <h2 class="section-title">Minhas Especialidades</h2>
             
             <div class="especialidades__grid">
+                <!-- Bloco Front-End -->
                 <div class="especialidades__card">
-                    <div class="card-icon"><i class="fas fa-code"></i></div>
+                    <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
                     <h3>Front-End</h3>
                     <ul class="repo-list">
                         <li><a href="https://github.com" target="_blank"><i class="fab fa-github"></i> HTML5, CSS3</a></li>
-                        <li><a href="https://github.com/JotaMarcos/barbearia-alura.git" target="_blank"><i class="fab fa-github"></i> HTML5, CSS3, JS</a></li>
+                        <li><a href="https://github.com/JotaMarcos/barbearia-alura.git" target="_blank"><i class="fab fa-github"></i> HTML5, CSS3, JavaScript</a></li>
                         <li><a href="https://github.com/JotaMarcos/listaTelefonica.git" target="_blank"><i class="fab fa-github"></i> AngularJS</a></li>
                     </ul>
                 </div>
                
+                <!-- Bloco Back-End -->
                 <div class="especialidades__card">
-                    <div class="card-icon"><i class="fas fa-server"></i></div>
+                    <div class="card-icon"><i class="fas fa-terminal"></i></div>
                     <h3>Back-End</h3>
                     <ul class="repo-list">
                         <li><a href="https://github.com/JotaMarcos/fundamentosJava.git" target="_blank"><i class="fab fa-github"></i> Java Core</a></li>
@@ -84,6 +89,7 @@
         </ul>
     </footer>
 
+    <!-- Arquivo JavaScript -->
     <script src="./js/main.js" defer></script>
 </body>
 </html>
