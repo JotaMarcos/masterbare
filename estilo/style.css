@@ -178,7 +178,7 @@ body {
     padding-left: 5px;
 }
 
-/* Nova área para a Frase Efeito */
+/* Área para a Frase de Efeito com cursor de digitação */
 .phrase-container {
     text-align: center;
     margin-top: 50px;
@@ -189,14 +189,24 @@ body {
     font-weight: 600;
     color: var(--color-secondary);
     display: inline-block;
+    border-right: 2px solid var(--color-accent);
+    white-space: nowrap;
+    padding-right: 5px;
+    animation: blink-cursor 0.75s step-end infinite;
 }
 
-/* Rodapé Ajustado */
+/* Animação do Cursor Piscando (Efeito Terminal) */
+@keyframes blink-cursor {
+    from, to { border-color: transparent }
+    50% { border-color: var(--color-accent); }
+}
+
+/* Rodapé */
 .footer {
     background: var(--color-bg-dark);
     color: var(--color-white);
     padding: 20px;
-    margin-top: auto; /* Joga o footer sempre para o final da página */
+    margin-top: auto; /* Garante o rodapé na base da página */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -213,8 +223,22 @@ body {
     color: #00b4d8;
 }
 
-/* Responsividade Básica para Celulares */
+/* Responsividade para Dispositivos Móveis */
 @media (max-width: 600px) {
-    .header__title { font-size: 1.8rem; }
-    .footer { flex-direction: column; text-align: center; }
+    .header__title { 
+        font-size: 1.8rem; 
+    }
+    .footer { 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    .footer__social {
+        justify-content: center;
+    }
+    .typing-text {
+        font-size: 1.1rem;
+        white-space: normal; /* Permite quebrar linha em telas muito pequenas se necessário */
+        border-right: none;
+        animation: none;
+    }
 }
