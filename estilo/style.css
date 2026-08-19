@@ -1,128 +1,220 @@
-    *{
-        box-sizing: border-box;
-    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 :root {
-    font-family: sans-serif;
-    --color-link: #f52a1cfd;
-    --color-gradient-top: #3054f7fb;
-    --color-gradient-bottom: #49ff49fb;
-
-    /*font-family: sans-serif;
-    --color-link: #0085FF;
-    --color-gradient-top: #FF4F4F;
-    --color-gradient-bottom: #FF7D1B;*/
-
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --color-bg-light: #f8f9fa;
+    --color-bg-dark: #1a1a2e;
+    --color-primary: #0f4c81; /* Azul clássico profissional */
+    --color-secondary: #1f4068;
+    --color-accent: #e43f5a; /* Cor de destaque para links/hover */
+    --color-text: #333333;
+    --color-white: #ffffff;
+    --transition: all 0.3s ease;
 }
 
 body {
-    margin: 0;
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-h1{
-    margin: 0;
-    text-shadow: 0px 4px 4px #0004;
-    width: 15ch;
-    height: 10ch;
-
-}
-h2, h4, h6 {
-    margin: 16px;
-    text-shadow: 0px 4px 4px #0004;
-    width: 20ch;
-    padding: 0 auto;
-
-}
-
+/* Header com Gradiente Moderno */
 .header {
-    height: 50vh;
-    background: linear-gradient(to right bottom, var(--color-gradient-top), var(--color-gradient-bottom));
-    color: #FFF;
+    height: 45vh;
+    background: linear-gradient(135deg, var(--color-bg-dark), var(--color-primary));
+    color: var(--color-white);
     display: grid;
     place-items: center;
-    box-shadow: 0px 4px 4px #0004;
     text-align: center;
+    padding: 0 20px;
 }
 
+.header__subtitle {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #00b4d8;
+    font-weight: 600;
+}
+
+.header__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Perfil */
 .profile {
     position: relative;
-    top: -75px;
-    text-align: center;
-
+    margin-top: -80px;
+    padding: 0 20px;
+    margin-bottom: 40px;
 }
 
+.profile__container {
+    background: var(--color-white);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+}
 
 .profile__avatar {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 5px solid #FFF;
-    box-shadow: 0px 4px 4px #0004;
-    float: center
-    
+    border: 5px solid var(--color-white);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.profile__avatar:hover {
+    transform: scale(1.05);
 }
 
 .profile__copy {
-    margin: 32px auto;
-    max-width: 80ch;
-    font-style: italic;
-
-
+    margin: 25px auto;
+    color: #555;
+    font-size: 1.05rem;
+    max-width: 65ch;
 }
 
-.profile__especialidade {
-    padding: 3em 0;
-	background: #888888;
-
-    
-
-}
-
-
-.profile__especialidade li {
-    display: inline-block;
-    text-align: center;
-    width: 30%;
-    vertical-align: top;
-    margin: auto 0 1.5%;
-    padding: 30px 20px 10px;
-    box-sizing: border-box;
-    border: 2px solid #000000;
-    border-radius: 10px;
-}
-
-.profile__especialidade li:hover {
-    border-color: #C78C19;
-    padding: 40px 30px 10px;
-}
-
+/* Redes Sociais */
 .profile__social, .footer__social {
-    display: grid;
-    grid-auto-flow: column;
-    gap: 16px;
-    margin: 0 auto;
-    padding: 0;
-    width: fit-content;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     list-style: none;
-    color: var(--color-link);
-
 }
 
+.profile__social a, .footer__social a {
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    transition: var(--transition);
+}
 
-.footer {
-    box-sizing: border-box;
-    position: fixed;
-    bottom: 0;
-    background: #000;
-    width: 100vw;
-    padding: 16px;
-    color: #FFF;
+.profile__social a:hover {
+    color: var(--color-accent);
+    transform: translateY(-3px);
+}
+
+/* Especialidades (Grid Responsivo) */
+.especialidades {
+    background-color: #ededed;
+    padding: 60px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-bg-dark);
+    font-size: 2rem;
+}
+
+.especialidades__grid {
     display: grid;
-    grid-template-columns: auto auto;
-    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.footer__social {
-    margin: 0;
-    justify-self: end;
+.especialidades__card {
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--color-primary);
+    transition: var(--transition);
+}
+
+.especialidades__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.especialidades__card h3 {
+    margin-bottom: 20px;
+    color: var(--color-bg-dark);
+}
+
+.repo-list {
+    list-style: none;
+}
+
+.repo-list li {
+    margin-bottom: 12px;
+}
+
+.repo-list a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.repo-list a:hover {
+    color: var(--color-accent);
+    padding-left: 5px;
+}
+
+/* Nova área para a Frase Efeito */
+.phrase-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.typing-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    display: inline-block;
+}
+
+/* Rodapé Ajustado */
+.footer {
+    background: var(--color-bg-dark);
+    color: var(--color-white);
+    padding: 20px;
+    margin-top: auto; /* Joga o footer sempre para o final da página */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer__social a {
+    color: var(--color-white);
+    font-size: 1.3rem;
+}
+
+.footer__social a:hover {
+    color: #00b4d8;
+}
+
+/* Responsividade Básica para Celulares */
+@media (max-width: 600px) {
+    .header__title { font-size: 1.8rem; }
+    .footer { flex-direction: column; text-align: center; }
 }
