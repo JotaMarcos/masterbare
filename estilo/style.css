@@ -25,7 +25,7 @@ body {
     min-height: 100vh;
 }
 
-/* Header com Gradiente Moderno e Elementos Flutuantes */
+/* Header com Gradiente e Canvas */
 .header {
     height: 45vh;
     background: linear-gradient(135deg, var(--color-bg-dark), var(--color-primary));
@@ -34,15 +34,28 @@ body {
     place-items: center;
     text-align: center;
     padding: 0 20px;
-    overflow: hidden; /* Oculta a barra de rolagem quando o texto passa pela borda da tela */
+    overflow: hidden;
     position: relative;
+}
+
+/* Garante que o canvas ocupe todo o fundo do cabeçalho */
+#header-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; /* Permite interações passarem por ele */
 }
 
 .header__content {
     width: 100%;
+    position: relative;
+    z-index: 2; /* Fica por cima do fundo animado */
 }
 
-/* Frase Animada do Cabeçalho */
+/* Estilização da frase flutuante */
 .header__subtitle {
     font-size: 1.1rem;
     text-transform: uppercase;
@@ -50,31 +63,16 @@ body {
     color: #00b4d8;
     font-weight: 600;
     white-space: nowrap;
-    
-    /* Configuração física absoluta para movimentação fluida da esquerda para a direita */
     position: absolute;
     top: 40px;
-    left: 0;
-    width: 100%;
-    
-    /* Dispara a animação nativa do CSS3 */
-    animation: moverFrase 15s linear infinite;
-}
-
-/* Regra de Animação CSS3 para efeito infinito de Marquee */
-@keyframes moverFrase {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+    z-index: 3; /* Sempre legível e visível */
+    will-change: transform;
 }
 
 .header__title {
     font-size: 2.5rem;
     font-weight: 700;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
 /* Perfil */
@@ -93,6 +91,8 @@ body {
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     text-align: center;
+    position: relative;
+    z-index: 10;
 }
 
 .profile__avatar {
@@ -135,7 +135,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* Especialidades (Grid Responsivo) */
+/* Especialidades */
 .especialidades {
     background-color: #ededed;
     padding: 60px 20px;
@@ -204,7 +204,7 @@ body {
     padding-left: 5px;
 }
 
-/* Área da Frase com Cursor de Digitação */
+/* Área para a Frase Efeito */
 .phrase-container {
     text-align: center;
     margin-top: 50px;
@@ -221,7 +221,6 @@ body {
     animation: blink-cursor 0.75s step-end infinite;
 }
 
-/* Animação do Cursor Piscando (Efeito Terminal) */
 @keyframes blink-cursor {
     from, to { border-color: transparent }
     50% { border-color: var(--color-accent); }
@@ -232,7 +231,7 @@ body {
     background: var(--color-bg-dark);
     color: var(--color-white);
     padding: 20px;
-    margin-top: auto; /* Joga o footer para a base da página de forma flexível */
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -249,18 +248,11 @@ body {
     color: #00b4d8;
 }
 
-/* Responsividade para Dispositivos Móveis */
+/* Responsividade Básica */
 @media (max-width: 600px) {
-    .header__title { 
-        font-size: 1.8rem; 
-    }
-    .footer { 
-        flex-direction: column; 
-        text-align: center; 
-    }
-    .footer__social {
-        justify-content: center;
-    }
+    .header__title { font-size: 1.8rem; }
+    .footer { flex-direction: column; text-align: center; }
+    .footer__social { justify-content: center; }
     .typing-text {
         font-size: 1.1rem;
         white-space: normal;
