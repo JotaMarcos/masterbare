@@ -63,7 +63,7 @@ body {
     z-index: 2;
 }
 
-/* Letreiro Marquee Puro em CSS3 */
+/* Letreiro Marquee CSS3 */
 .header__subtitle {
     font-size: 0.95rem;
     text-transform: uppercase;
@@ -103,11 +103,38 @@ body {
     position: relative;
     margin-top: -60px;
     padding: 0 20px 40px 20px;
+    overflow: hidden;
     background-image: 
         radial-gradient(rgba(23, 42, 69, 0.08) 1.5px, transparent 0),
         radial-gradient(rgba(100, 255, 218, 0.1) 1.5px, transparent 0);
     background-size: 30px 30px;
     background-position: 0 0, 15px 15px;
+}
+
+/* Elemento da Nova Logo em Paralaxe Dinâmico de Fundo */
+.profile__bg-logo {
+    position: fixed; /* Efeito Paralaxe: Fica fixo enquanto o contêiner rola */
+    top: 45%;
+    left: 0;
+    width: 320px;
+    height: 320px;
+    z-index: 1; /* Fica atrás da div profile__container */
+    pointer-events: none; /* Ignora o mouse para não atrapalhar a seleção de texto */
+    opacity: 0.12; /* Suave para funcionar como uma marca d'água executiva */
+    
+    /* Movimentação horizontal automática de um lado para o outro */
+    animation: moverLogoLateral 25s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+/* Animação que faz a imagem transicionar horizontalmente pelas extremidades da janela */
+@keyframes moverLogoLateral {
+    0% {
+        transform: translateX(5vw) rotate(0deg);
+    }
+    100% {
+        transform: translateX(calc(95vw - 320px)) rotate(15deg); /* Vai até a borda direita e dá um giro sutil */
+    }
 }
 
 .profile__container {
@@ -121,7 +148,7 @@ body {
     text-align: center;
     border: 1px solid rgba(23, 42, 69, 0.08);
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Fica por cima da logo em movimento */
 }
 
 .profile__avatar-container {
@@ -186,7 +213,7 @@ body {
     margin-right: 7px;
 }
 
-/* Área de Destaque para Botões das Redes Sociais Completas */
+/* Botões Sociais Premium */
 .profile__social-wrapper {
     display: flex;
     justify-content: center;
@@ -215,28 +242,21 @@ body {
     font-size: 1.25rem;
 }
 
-/* Cores Oficiais Premium e Efeitos Interativos */
-.linkedin-btn {
-    background-color: #0077b5;
-}
+.linkedin-btn { background-color: #0077b5; }
 .linkedin-btn:hover {
     background-color: #005a8a;
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 119, 181, 0.4);
 }
 
-.github-btn {
-    background-color: #24292e;
-}
+.github-btn { background-color: #24292e; }
 .github-btn:hover {
     background-color: #0f1115;
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(36, 41, 46, 0.4);
 }
 
-.whatsapp-btn {
-    background-color: #25d366;
-}
+.whatsapp-btn { background-color: #25d366; }
 .whatsapp-btn:hover {
     background-color: #1ebd56;
     transform: translateY(-3px);
@@ -253,6 +273,7 @@ body {
         linear-gradient(to right, rgba(23, 42, 69, 0.04) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(23, 42, 69, 0.04) 1px, transparent 1px);
     background-size: 35px 35px;
+    z-index: 3; /* Garante que cubra a logo fixada ao rolar a página para baixo */
 }
 
 .section-title {
@@ -413,9 +434,3 @@ body {
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-    .header__title { font-size: 2.1rem; }
-    .footer { flex-direction: column; text-align: center; padding: 25px 20px; }
-    .profile__container { padding: 35px 20px; }
-    .typing-text { font-size: 1rem; white-space: normal; border-right: none; animation: none; }
-}
