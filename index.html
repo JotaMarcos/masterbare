@@ -26,7 +26,7 @@
 
     <main>
         <!-- Seção Perfil -->
-        <section class="profile">
+        <section id="perfil" class="profile">
             <div class="profile__container tech-data-bg">
                 <div class="profile__avatar-container">
                     <img class="profile__avatar" src="imagens/joaomarcos.png" alt="Foto de perfil de João Marcos"/>
@@ -38,7 +38,7 @@
                 </p> 
 
                 <p class="profile__copy">
-                    Possuo sólida e sólida bagagem como <strong>Desenvolvedor Java Full Stack</strong>. No ecossistema back-end, governo arquiteturas modulares utilizando Spring Boot, Hibernate, JPA, Maven, Tomcat, JUnit e Mockito, integradas a barramentos de microsserviços e APIs REST rigorosamente documentadas sob a especificação Swagger. No front-end, construo interfaces performáticas e responsivas com Angular e TypeScript. Ampla experiência em modelagem e manutenção de dados relacionais e não-relacionais, operando PostgreSQL e Oracle via DBeaver. Especialista na modernização de sistemas legados complexos orientados à refatoração contínua, pilares de Clean Code e aplicação rigorosa de Test-Driven Development (TDD) sob a governança ágil dos frameworks Scrum e Kanban.
+                    Possuo sólida bagagem como <strong>Desenvolvedor Java Full Stack</strong>. No ecossistema back-end, governo arquiteturas modulares utilizando Spring Boot, Hibernate, JPA, Maven, Tomcat, JUnit e Mockito, integradas a barramentos de microsserviços e APIs REST rigorosamente documentadas sob a especificação Swagger. No front-end, construo interfaces performáticas e responsivas com Angular e TypeScript. Ampla experiência em modelagem e manutenção de dados relacionais e não-relacionais, operando PostgreSQL e Oracle via DBeaver. Especialista na modernização de sistemas legados complexos orientados à refatoração contínua, pilares de Clean Code e aplicação rigorosa de Test-Driven Development (TDD) sob a governança ágil dos frameworks Scrum e Kanban.
                 </p>
 
                 <p class="profile__copy">
@@ -53,6 +53,7 @@
                     <span><i class="fas fa-certificate"></i> DevOps Essentials</span>
                 </div>
                 
+                <!-- Redes Sociais Centralizadas e Sem Bolinhas -->
                 <ul class="profile__social">
                     <li><a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
                     <li><a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
@@ -62,7 +63,7 @@
         </section>
 
         <!-- Seção Especialidades -->
-        <section class="especialidades tech-education-bg">
+        <section id="especialidades" class="especialidades tech-education-bg">
             <h2 class="section-title">Minhas Especialidades</h2>
             
             <div class="especialidades__grid">
@@ -70,9 +71,9 @@
                     <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
                     <h3>Front-End</h3>
                     <ul class="repo-list">
-                        <li><a href="https://github.com/masterbare.git" target="_blank"><i class="fab fa-github"></i> HTML5, CSS3</a></li>
-                        <li><a href="https://github.com/barbearia-alura.git" target="_blank"><i class="fab fa-github"></i> HTML5, CSS3, JavaScript</a></li>
-                        <li><a href="https://github.com/listaTelefonica.git" target="_blank"><i class="fab fa-github"></i> AngularJS</a></li>
+                        <li><a href="https://github.com/masterbare.git"><i class="fab fa-github"></i> HTML5, CSS3</a></li>
+                        <li><a href="https://github.com/barbearia-alura.git"><i class="fab fa-github"></i> HTML5, CSS3, JavaScript</a></li>
+                        <li><a href="https://github.com/listaTelefonica.git"><i class="fab fa-github"></i> AngularJS</a></li>
                     </ul>
                 </div>
                
@@ -80,9 +81,9 @@
                     <div class="card-icon"><i class="fas fa-terminal"></i></div>
                     <h3>Back-End</h3>
                     <ul class="repo-list">
-                        <li><a href="https://github.com/fundamentosJava.git" target="_blank"><i class="fab fa-github"></i> Java Core</a></li>
-                        <li><a href="https://github.com/POOExpert.git" target="_blank"><i class="fab fa-github"></i> POO Avançado</a></li>
-                        <li><a href="https://github.com/DevLockTechContatos.git" target="_blank"><i class="fab fa-github"></i> Spring Boot</a></li>
+                        <li><a href="https://github.com/fundamentosJava.git"><i class="fab fa-github"></i> Java Core</a></li>
+                        <li><a href="https://github.com/POOExpert.git"><i class="fab fa-github"></i> POO Avançado</a></li>
+                        <li><a href="https://github.com/DevLockTechContatos.git"><i class="fab fa-github"></i> Spring Boot</a></li>
                     </ul>
                 </div>
             </div>
@@ -93,7 +94,7 @@
         </section>
     </main>
 
-    <!-- Rodapé Corporativo Corrigido -->
+    <!-- Rodapé Corporativo -->
     <footer class="footer">
         <p>&copy; <span id="year"></span> - Todos os direitos são reservados à MasterBaré</p>
         <ul class="footer__social">
