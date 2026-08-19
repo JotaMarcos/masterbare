@@ -34,7 +34,7 @@ body {
     place-items: center;
     text-align: center;
     padding: 0 20px;
-    overflow: hidden;
+    overflow: hidden; /* Crucial para o marquee não criar barra de rolagem horizontal */
     position: relative;
     box-shadow: inset 0 -10px 20px rgba(0,0,0,0.3);
 }
@@ -56,19 +56,43 @@ body {
     z-index: 2;
 }
 
-/* Substituição da Tag Marquee com física de renderização por GPU */
+/* O novo Marquee moderno feito puramente em CSS3 */
 .header__subtitle {
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 3px;
     color: var(--color-accent);
     font-weight: 600;
-    white-space: nowrap;
+    white-space: nowrap; /* Impede a frase de quebrar linha */
+    
     position: absolute;
     top: 30px;
+    left: 0;
+    width: 100%;
     z-index: 3;
-    will-change: transform;
     text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+    
+    /* Dispara a animação nativa do CSS3: nome, duração (15 segundos), ritmo linear, repetição infinita */
+    animation: marqueeCSS 15s linear infinite;
+    
+    /* Força o navegador a usar a placa de vídeo para mover o texto com fluidez máxima */
+    will-change: transform; 
+}
+
+/* Pausa a animação de forma elegante quando o usuário passa o mouse por cima */
+.header__subtitle:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+/* A lógica do movimento: inicia 100% à direita da tela externa e termina 100% à esquerda externa */
+@keyframes marqueeCSS {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .header__title {
