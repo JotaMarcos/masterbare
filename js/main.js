@@ -1,94 +1,77 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Atualiza dinamicamente o ano no Footer
+    // 1. Data dinâmica sem document.write
     const yearSpan = document.getElementById("year");
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // 2. Efeito de digitação suave para a frase final
+    // 2. Efeito Máquina de Escrever no Terminal Inferior
     const textElement = document.querySelector(".typing-text");
     if (textElement) {
         const text = textElement.textContent;
         textElement.textContent = "";
         let i = 0;
-
         function typeWriter() {
             if (i < text.length) {
                 textElement.textContent += text.charAt(i);
                 i++;
-                setTimeout(typeWriter, 100);
+                setTimeout(typeWriter, 90);
             }
         }
         typeWriter();
     }
 
-    // 3. Movimentação Infinita da Frase Superior (Alternativa Moderna ao Marquee)
+    // 3. Substituição do Letreiro Marquee Inteligente (Loop Infinito por GPU)
     const subtitle = document.querySelector(".header__subtitle");
     if (subtitle) {
-        let currentX = window.innerWidth; // Inicia na extremidade direita da tela
-        const speed = 1.8; // Controla a velocidade do deslize
-
+        let currentX = window.innerWidth;
+        const speed = 1.5;
         function animateMarquee() {
             const textWidth = subtitle.offsetWidth;
             currentX -= speed;
-
-            // Se o texto sair completamente pela esquerda, reseta para a direita
-            if (currentX < -textWidth) {
-                currentX = window.innerWidth;
-            }
-
+            if (currentX < -textWidth) currentX = window.innerWidth;
             subtitle.style.transform = `translateX(${currentX}px)`;
             requestAnimationFrame(animateMarquee);
         }
         animateMarquee();
     }
 
-    // 4. Fundo de Partículas Interativo no Header (Substituindo imagens estáticas pesadas)
+    // 4. Rede Conectada / Constelação Tecnológica Animada em HTML5 Canvas
     const canvas = document.getElementById("header-canvas");
     if (canvas) {
         const ctx = canvas.getContext("2d");
         let particlesArray = [];
-        const numberOfParticles = 40;
+        const numberOfParticles = 60;
 
-        // Ajusta as dimensões do canvas para casar com o elemento pai
-        function setCanvasSize() {
+        function resize() {
             canvas.width = canvas.parentElement.offsetWidth;
             canvas.height = canvas.parentElement.offsetHeight;
         }
-        setCanvasSize();
-        window.addEventListener("resize", setCanvasSize);
+        resize();
+        window.addEventListener("resize", resize);
 
-        // Classe Construtora das Partículas
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1; // Pequenos pontos brilhantes
-                this.speedX = Math.random() * 0.4 - 0.2; // Movimento sutil
-                this.speedY = Math.random() * 0.4 - 0.2;
-                this.opacity = Math.random() * 0.5 + 0.2;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.6 - 0.3;
+                this.speedY = Math.random() * 0.6 - 0.3;
             }
-
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-
-                // Faz a partícula voltar para a tela caso ela saia das bordas
                 if (this.x > canvas.width) this.x = 0;
                 if (this.x < 0) this.x = canvas.width;
                 if (this.y > canvas.height) this.y = 0;
                 if (this.y < 0) this.y = canvas.height;
             }
-
             draw() {
-                ctx.fillStyle = `rgba(0, 180, 216, ${this.opacity})`; // Tons cyan modernos
+                ctx.fillStyle = "rgba(100, 255, 218, 0.4)";
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
 
-        // Inicializa o array de partículas
         function init() {
             particlesArray = [];
             for (let i = 0; i < numberOfParticles; i++) {
@@ -97,15 +80,35 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         init();
 
-        // Loop de renderização do Canvas para movimentos a 60fps estáveis
-        function handleParticles() {
+        // Desenha linhas conectando as partículas próximas criando o efeito de rede (web)
+        function connectNodes() {
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let dx = particlesArray[a].x - particlesArray[b].x;
+                    let dy = particlesArray[a].y - particlesArray[b].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 90) {
+                        ctx.strokeStyle = `rgba(100, 255, 218, ${1 - (distance/90) * 0.15})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let i = 0; i < particlesArray.length; i++) {
                 particlesArray[i].update();
                 particlesArray[i].draw();
             }
-            requestAnimationFrame(handleParticles);
+            connectNodes();
+            requestAnimationFrame(animate);
         }
-        handleParticles();
+        animate();
     }
 });
