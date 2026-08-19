@@ -63,7 +63,7 @@ body {
     z-index: 2;
 }
 
-/* Marquee Pura em CSS3 */
+/* Letreiro Marquee Puro em CSS3 */
 .header__subtitle {
     font-size: 0.95rem;
     text-transform: uppercase;
@@ -186,15 +186,15 @@ body {
     margin-right: 7px;
 }
 
-/* Redes Sociais do Perfil Otimizadas Lado a Lado e Sem Pontos */
+/* Redes Sociais do Perfil Corrigidas e Altamente Visíveis */
 .profile__social {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 30px !important;
+    gap: 35px !important;
     list-style: none !important;
     list-style-type: none !important;
-    margin: 35px auto 0 auto !important;
+    margin: 40px auto 0 auto !important;
     padding: 0 !important;
     width: 100%;
 }
@@ -208,15 +208,16 @@ body {
 }
 
 .profile__social a {
-    color: var(--color-primary);
-    font-size: 2.2rem;
-    transition: var(--transition);
-    display: inline-block;
+    color: var(--color-primary) !important;
+    font-size: 2.5rem !important; /* Aumentado para destaque total */
+    transition: var(--transition) !important;
+    display: inline-block !important;
+    text-decoration: none !important;
 }
 
 .profile__social a:hover {
-    color: var(--color-accent);
-    transform: translateY(-4px);
+    color: var(--color-accent) !important;
+    transform: translateY(-4px) !important;
 }
 
 /* Seção Especialidades */
