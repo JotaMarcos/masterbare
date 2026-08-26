@@ -5,6 +5,11 @@
     padding: 0;
 }
 
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Evita qualquer rolagem lateral acidental */
+}
+
 ul, ol, li {
     list-style: none !important;
     list-style-type: none !important;
@@ -36,6 +41,7 @@ body {
 /* Header */
 .header {
     height: 40vh;
+    min-height: 250px;
     background: radial-gradient(circle at center, var(--color-primary) 0%, var(--color-bg-dark) 100%);
     color: var(--color-white);
     display: grid;
@@ -61,6 +67,9 @@ body {
 .header__content {
     position: relative;
     z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 15px;
 }
 
 /* Letreiro Marquee CSS3 */
@@ -72,7 +81,7 @@ body {
     font-weight: 600;
     white-space: nowrap;
     position: absolute;
-    top: 30px;
+    top: 25px;
     left: 0;
     width: 100%;
     z-index: 3;
@@ -92,10 +101,11 @@ body {
 }
 
 .header__title {
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 700;
     letter-spacing: -0.5px;
     text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    word-break: break-word;
 }
 
 /* Seção Perfil */
@@ -120,20 +130,17 @@ body {
     height: 320px;
     z-index: 1;
     pointer-events: none;
-    
-    /* MODIFIQUE APENAS ESTA LINHA: */
-    opacity: 0.35; /* Aumentado de 0.12 para 0.35 para dar mais nitidez */
-    
+    opacity: 0.35;
     animation: moverLogoLateral 25s ease-in-out infinite alternate;
     will-change: transform;
 }
-/* Animação que faz a imagem transicionar horizontalmente pelas extremidades da janela */
+
 @keyframes moverLogoLateral {
     0% {
         transform: translateX(5vw) rotate(0deg);
     }
     100% {
-        transform: translateX(calc(95vw - 320px)) rotate(15deg); /* Vai até a borda direita e dá um giro sutil */
+        transform: translateX(calc(95vw - 320px)) rotate(15deg);
     }
 }
 
@@ -148,7 +155,7 @@ body {
     text-align: center;
     border: 1px solid rgba(23, 42, 69, 0.08);
     position: relative;
-    z-index: 2; /* Fica por cima da logo em movimento */
+    z-index: 2;
 }
 
 .profile__avatar-container {
@@ -273,13 +280,13 @@ body {
         linear-gradient(to right, rgba(23, 42, 69, 0.04) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(23, 42, 69, 0.04) 1px, transparent 1px);
     background-size: 35px 35px;
-    z-index: 3; /* Garante que cubra a logo fixada ao rolar a página para baixo */
+    z-index: 3;
 }
 
 .section-title {
     margin-bottom: 55px;
     color: var(--color-bg-dark);
-    font-size: 2.3rem;
+    font-size: clamp(1.8rem, 3.5vw, 2.3rem);
 }
 
 .section-title::after {
@@ -294,7 +301,8 @@ body {
 
 .especialidades__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /* Ajustado minmax de 320px para 280px para evitar estourar em celulares menores */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 35px;
     max-width: 1100px;
     margin: 0 auto;
@@ -355,10 +363,12 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
+    word-break: break-word;
 }
 
 .repo-list a i {
     color: var(--color-text-side);
+    flex-shrink: 0;
 }
 
 .repo-list a:hover {
@@ -366,25 +376,28 @@ body {
     padding-left: 4px;
 }
 
-/* Terminal Inferior */
+/* Terminal Inferior Corrigido */
 .phrase-container {
     text-align: center;
-    margin-top: 70px;
+    margin: 70px auto 0 auto;
     background: var(--color-bg-dark);
-    padding: 18px 25px;
+    padding: 16px 22px;
     display: inline-block;
+    max-width: 90%; /* Limita a largura maxima ao container pai */
+    width: auto;
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .typing-text {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.15rem;
+    font-size: clamp(0.85rem, 3.5vw, 1.15rem); /* Fonte fluida que encolhe em telas pequenas */
     font-weight: 600;
     color: var(--color-accent);
     display: inline-block;
     border-right: 2px solid var(--color-accent);
-    white-space: nowrap;
+    white-space: normal; /* Permite a quebra de linha caso a tela seja ultra estreita */
+    word-break: break-word;
     padding-right: 5px;
     animation: blink-cursor 0.75s step-end infinite;
 }
@@ -433,4 +446,70 @@ body {
     transform: translateY(-2px);
 }
 
-/* Responsividade */
+/* Regras de Responsividade */
+@media (max-width: 768px) {
+    .header {
+        height: 35vh;
+    }
+
+    .profile__container {
+        padding: 35px 20px;
+    }
+
+    .profile__copy {
+        text-align: left;
+        text-indent: 0;
+        font-size: 0.98rem;
+    }
+
+    .profile__bg-logo {
+        width: 180px;
+        height: 180px;
+    }
+
+    @keyframes moverLogoLateral {
+        0% { transform: translateX(2vw) rotate(0deg); }
+        100% { transform: translateX(calc(98vw - 180px)) rotate(10deg); }
+    }
+
+    .especialidades {
+        padding: 60px 15px;
+    }
+
+    .especialidades__card {
+        padding: 30px 20px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding: 25px 20px;
+    }
+
+    .footer__social {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header__subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+    .profile__avatar {
+        width: 110px;
+        height: 110px;
+    }
+
+    .social-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .phrase-container {
+        margin-top: 45px;
+        padding: 12px 16px;
+    }
+}
