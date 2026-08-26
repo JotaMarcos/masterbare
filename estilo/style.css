@@ -301,7 +301,6 @@ body {
 
 .especialidades__grid {
     display: grid;
-    /* Ajustado minmax de 320px para 280px para evitar estourar em celulares menores */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 35px;
     max-width: 1100px;
@@ -381,22 +380,22 @@ body {
     text-align: center;
     margin: 70px auto 0 auto;
     background: var(--color-bg-dark);
-    padding: 16px 22px;
+    padding: 14px 20px;
     display: inline-block;
-    max-width: 90%; /* Limita a largura maxima ao container pai */
-    width: auto;
+    max-width: calc(100% - 40px); /* Garante margem de segurança nas laterais */
+    box-sizing: border-box;
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .typing-text {
     font-family: 'Courier New', Courier, monospace;
-    font-size: clamp(0.85rem, 3.5vw, 1.15rem); /* Fonte fluida que encolhe em telas pequenas */
+    font-size: clamp(0.85rem, 3.5vw, 1.15rem); /* Dimensiona a fonte dinamicamente */
     font-weight: 600;
     color: var(--color-accent);
     display: inline-block;
     border-right: 2px solid var(--color-accent);
-    white-space: normal; /* Permite a quebra de linha caso a tela seja ultra estreita */
+    white-space: normal; /* Permite quebra caso a tela seja ultra-estreita */
     word-break: break-word;
     padding-right: 5px;
     animation: blink-cursor 0.75s step-end infinite;
