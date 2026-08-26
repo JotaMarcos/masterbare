@@ -263,6 +263,13 @@ body {
     box-shadow: 0 6px 15px rgba(36, 41, 46, 0.4);
 }
 
+.teams-btn { background-color: #6264a7; }
+.teams-btn:hover {
+    background-color: #464775;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(98, 100, 167, 0.4);
+}
+
 .whatsapp-btn { background-color: #25d366; }
 .whatsapp-btn:hover {
     background-color: #1ebd56;
